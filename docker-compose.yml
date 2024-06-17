@@ -18,7 +18,7 @@ services:
       context: ./dice-game-back
     container_name: dice-game-back
     ports:
-      - "8080:8080"
+      - "8081:8080"
     depends_on:
        db :
         condition: service_started
