@@ -24,7 +24,7 @@ jobs:
           VPS_HOST: ${{ secrets.VPS_HOST }}
           APP_PATH: /home/dice-game/htdocs/dice-game.online
         run: |
-            ssh-pass -p $VPS_PASSWORD rsync -avz -e -o StrictHostKeyChecking=no" ./ $VPS_USER@$VPS_HOST:$APP_PATH "
+            sshpass -p $VPS_PASSWORD rsync -avz -e -o StrictHostKeyChecking=no" ./ $VPS_USER@$VPS_HOST:$APP_PATH "
 
       - name: Deploy using docker-compose
         env:
