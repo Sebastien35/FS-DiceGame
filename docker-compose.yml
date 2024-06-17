@@ -2,16 +2,16 @@ version: "3.9"
 
 services:
   db:
-      image: mysql:8.4.0
-      container_name: dice-game-database
-      restart: unless-stopped
-      env_file:
-        - .env
-      ports:
-        - "3308:3306"
-      volumes:
-        - mysql-data:/var/lib/mysql
-        - ./init:/docker-entrypoint-initdb.d
+    image: mysql:8.4.0
+    container_name: dice-game-database
+    restart: unless-stopped
+    env_file:
+      - .env
+    ports:
+      - "3308:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+      - ./init:/docker-entrypoint-initdb.d
 
   back:
     build:
@@ -19,16 +19,11 @@ services:
     container_name: dice-game-back
     ports:
       - "8081:8080"
-    # Changed port because of nginx runnning on vps
     depends_on:
-       db :
+      db:
         condition: service_started
-    links:
-      - db
     stdin_open: true
     tty: true
-
-
 
   front:
     build:
@@ -41,7 +36,4 @@ services:
         condition: service_started
 
 volumes:
-    mysql-data:
-
-
-
+  mysql-data:
