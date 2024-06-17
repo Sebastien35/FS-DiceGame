@@ -1,0 +1,41 @@
+name: Deploy to vps
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubtuntu-latest
+    environment: vps
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install SSH Client
+        run: sudo-apt-get update && sudo apt-get install -y openssh-client sshpass
+
+      - name: Copy to VPS
+        env:
+          VPS_USER: ${{ secrets.VPS_USER }}
+          VPS_PASSWORD: ${{ secrets.VPS_PASSWORD }}
+          VPS_HOST: ${{ secrets.VPS_HOST }}
+          APP_PATH: ${{ variables.APP_PATH }}
+        run: |
+            ssh-pass -p $VPS_PASSWORD rsync -avz -e -o StrictHostKeyChecking=no" ./ $VPS_USER@$VPS_HOST:$APP_PATH "
+
+      - name: Deploy using docker-compose
+        env:
+          VPS_USER: ${{ secrets.VPS_USER }}
+          VPS_PASSWORD: ${{ secrets.VPS_PASSWORD }}
+          VPS_HOST: ${{ secrets.VPS_HOST }}
+        run: |
+          sshpass -p $VPS_PASSWORD ssh -o StrictHostKeyChecking=no $VPS_USER@$VPS_HOST << 'EOF'
+            cd $APP_PATH
+            docker-compose up -d
+          EOF
+
+
+
