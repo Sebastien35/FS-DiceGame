@@ -17,7 +17,7 @@ jobs:
       - name: Install SSH Client
         run: sudo apt-get update && sudo apt-get install sshpass
 
-      - name: Copy to VPS
+      - name: Copy to VPSS
         env:
           VPS_USER: ${{ secrets.VPS_USER }}
           VPS_PASSWORD: ${{ secrets.VPS_PASSWORD }}
