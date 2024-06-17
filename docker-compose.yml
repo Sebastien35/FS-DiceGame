@@ -30,7 +30,7 @@ services:
       context: ./dicegame-front
     container_name: dice-game-front
     ports:
-      - "80:80"
+      - "81:80"
     depends_on:
       back:
         condition: service_started
