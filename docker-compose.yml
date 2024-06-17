@@ -19,6 +19,7 @@ services:
     container_name: dice-game-back
     ports:
       - "8081:8080"
+    # Changed port because of nginx runnning on vps
     depends_on:
        db :
         condition: service_started
