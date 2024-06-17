@@ -1,0 +1,19 @@
+  spring.application.name: dice-game
+  logging.level.root: DEBUG
+  loggin.level.org.springframework.security: TRACE
+  enableLoggingRequestDetails: 'true'
+
+
+  spring:
+    datasource:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: ${DATABASE_URL}
+      username: ${MYSQL_USER}
+      password: ${MYSQL_PASSWORD}
+  
+  
+
+    spring.jpa.properties.hibernate.dialect: org.hibernate.dialect.MySQLDialect
+    spring.jpa.hibernate.ddl-auto: update
+
+

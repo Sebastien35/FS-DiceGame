@@ -1,0 +1,46 @@
+version: "3.9"
+
+services:
+  db:
+      image: mysql:8.4.0
+      container_name: dice-game-database
+      restart: unless-stopped
+      env_file:
+        - .env
+      ports:
+        - "3308:3306"
+      volumes:
+        - mysql-data:/var/lib/mysql
+        - ./init:/docker-entrypoint-initdb.d
+
+  back:
+    build:
+      context: ./dice-game-back
+    container_name: dice-game-back
+    ports:
+      - "8080:8080"
+    depends_on:
+       db :
+        condition: service_started
+    links:
+      - db
+    stdin_open: true
+    tty: true
+
+
+
+  front:
+    build:
+      context: ./dicegame-front
+    container_name: dice-game-front
+    ports:
+      - "80:80"
+    depends_on:
+      back:
+        condition: service_started
+
+volumes:
+    mysql-data:
+
+
+

@@ -1,0 +1,29 @@
+<div class="form-login d-flex justify-content-center container">
+    <div class="card mt-5 col-11">
+        <div class="card-header bg-dark text-white">
+            <h2>Register</h2>
+        </div>
+        <div class="card-body bg-light">
+            <form (ngSubmit)="onSubmit()" #userForm="ngForm">
+                <label for="username">Username</label>
+                <input type="text" class="form-control" id="username" required [(ngModel)]="user.username" name="username">
+                
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" required [(ngModel)]="user.email" name="email">
+                
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" required [(ngModel)]="user.password" name="password">
+                
+                <label for="confirm-password">Confirm Password</label>
+                <input type="password" class="form-control" id="confirm-password" required [(ngModel)]="user.confirmPassword" name="confirmPassword">
+                
+                <button type="submit " class="btn btn-primary" [disabled]="!userForm.valid">Register</button>
+            </form>
+        </div>
+        <div class="card-footer text-center bg-dark">
+            <a href="/connect" class="text-white">Already have an account? Login</a>
+        
+        </div>
+    </div>
+    
+</div>

@@ -1,0 +1,55 @@
+
+@import "../node_modules/bootstrap/scss/functions";
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
+:root {
+  --primary: #D21F3C !important;
+  --bs-primary-rgb: 210, 31, 60 !important;
+
+  --secondary: #D08770 !important ;
+  --bs-secondary-rgb: 76, 86, 106 !important;
+
+
+  --success: #8FBCBB!important ;
+
+  --info: #88C0D0 !important ;
+
+  --warning: #D08770 !important;
+
+  --danger: #D21F3C !important;
+
+  --light: #E5E6E8 !important;
+
+  --bs-dark: #1D1A20 !important;
+
+  --bs-body-bg: #E5E9F0 !important;
+
+  --bs-dark-rgb: 46, 52, 64 !important;
+
+}
+.text-primary {
+  color: var(--primary) !important;
+}
+
+.home{
+    height: 100dvh;
+    width: 100dvw;
+    
+}
+
+body{
+  overflow: hidden !important;
+}
+
+ 
+
+
+
+@font-face {
+  font-family: 'SairaCondensed';
+  src: url("./assets/fonts/Saira_Condensed/SairaCondensed-ExtraBold.ttf") format('truetype');
+ }
+
+ @font-face {
+  font-family: 'SairaCondensed-BOLD';
+  src: url('./assets/fonts/Saira_Condensed/SairaCondensed-Bold.ttf') format('truetype');
+ }

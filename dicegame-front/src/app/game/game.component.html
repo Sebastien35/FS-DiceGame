@@ -1,0 +1,99 @@
+<div class="game-container container mt-5 ">
+    
+    <div class="d-flex justify-content-center mt-3 game-config">
+        <div class=" card col-11">
+            <div class="card-header bg-dark text-white">
+                <h2>Game Configuration</h2>
+            </div>
+            <div class="card-body bg-light">
+                <form>
+                <span class="turns">Turns : </span>
+                <select class="turn-input" (change)="setTurns($event)">          
+                    <option value="6">6</option>
+                    <option value="12">12</option>
+                    <option value="18">18</option>
+                    <option value="24">24</option>
+                </select><br>
+                
+                <label for="player1NameInput">Player 1 name:</label>
+                <input type="text" class="form-control" id="player1NameInput" required (input)="setPlayer1Name($event)"  name="player1Name">
+                <label for="player2NameInput">Player 2 name:</label>
+                <input type="text" class="form-control" id="player2NameInput" required (input)="setPlayer2Name($event)" name="player2Name">
+                </form>
+            </div>
+            <div class="card-footer">
+                <button class="btn btn-primary" (click)="startGame($event)">Start Game</button>
+            </div>
+        </div>
+    </div>
+    <div class="game-container d-none" id="game-container">
+        <div class="turnNumberDisplay text-center mt-3 d-none">
+            <span>Turns to play : {{turns}}</span><br>
+            <span>Turn: {{ turnCounter }}</span>
+        </div>
+        <div class="d-flex justify-content-center game-over d-none">
+            <img src="../../assets/gifs/game-over.gif" alt="game-over">
+        </div>
+        <div class="d-flex justify-content-center current-player">
+            <h2>{{currentPlayer.name}}</h2>
+        </div>
+        <div class="results d-flex justify-content-center score-board">
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Player</th>
+                        <th>Score</th>
+                    </tr>
+                    
+                </thead>
+                <tbody class="text-center">
+                <tr>
+                    <td>{{player1.name}}</td>
+                    <td>{{player1.score}}</td>
+                </tr>
+                <tr>
+                    <td>{{player2.name}}</td>
+                    <td>{{player2.score}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="bonus text-center mt-2">
+            <span class="plus2 "> <em>+ 2 </em> </span>
+            <span class="plus3 "> <em>+ 3</em>  </span>
+        </div>
+        <div class="result-dice  dice my-5">
+            <div class="container d-flex justify-content-center">
+            
+                <div class="diceAnim ">
+                    <div class="face front"></div>
+                    <div class="face back"></div>
+                    <div class="face top"></div>
+                    <div class="face bottom"></div>
+                    <div class="face right"></div>
+                    <div class="face left"></div>
+                </div>
+        
+                
+        
+            </div>
+        </div>
+        <div class="image-btn d-flex justify-content-center mt-5">
+            <button class="btn btn-primary" (click)="rollDice()">Roll Dice</button>
+        </div>  
+
+        <div class="rules text-center mt-4">
+            <h3> Rules</h3>
+            <p> La partie se déroule en {{turns}} tours, chaque joueur lance 3 fois le dés d'affilée. <br> 2 x le même dé apporte deux points, 3 fois le même dé apporte 3 points</p>
+        
+        </div>
+
+        <div class="scoreKeeping">
+            <span>{{Player1ScoreArray}}</span>
+            <span>{{Player2ScoreArray}}</span>
+        </div>
+    </div>
+
+
+</div>

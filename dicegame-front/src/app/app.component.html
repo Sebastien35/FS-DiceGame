@@ -1,0 +1,46 @@
+
+
+  <header>
+    <nav class="navbar navbar-expand-lg  ">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/game">New Game</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item" *ngIf="!connected">
+              <a class="nav-link" routerLink="connect" (click)="closeCollapse()">Login</a>
+            </li>
+            <li class="nav-item" *ngIf="!connected">
+              <a class="nav-link" routerLink="register" (click)="closeCollapse()" >Register</a>
+            </li>
+
+            
+            <li class="nav-item" *ngIf="connected">
+              <a class="nav-link" (click)="logout()" (click)="closeCollapse()">Logout</a>
+            </li>
+            <li class="nav-item" *ngIf="connected">
+              <a class="nav-link" routerLink="scores" (click)="closeCollapse()">Scores</a>
+            </li>
+            
+            <li class="nav-item">
+              <a class="nav-link" routerLink="home" (click)="closeCollapse()"  >Home</a>
+            </li>
+
+            <li class="nav-item" *ngIf="isUserAdmin">
+              <a class="nav-link" routerLink="admin" (click)="closeCollapse()" >Admin</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <router-outlet />
+  
+
+
+
+
+

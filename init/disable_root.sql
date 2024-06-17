@@ -1,0 +1,2 @@
+GRANT ALL PRIVILEGES ON diceGame.* TO 'diceGameUser'@'%';
+FLUSH PRIVILEGES;

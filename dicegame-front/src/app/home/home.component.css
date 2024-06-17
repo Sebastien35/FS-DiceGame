@@ -1,0 +1,122 @@
+.home {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: 100vh; /* Full viewport height */
+  padding: 0 5vw; /* Add padding to avoid touching edges */
+  box-sizing: border-box;
+  background-color: #D21F3C; /* Red gradient background */
+}
+
+@font-face {
+  font-family: 'SairaCondensed';
+  src: url("../../assets/fonts/Saira_Condensed/SairaCondensed-ExtraBold.ttf") format('truetype');
+ }
+
+ @font-face {
+  font-family: 'SairaCondensed-BOLD';
+  src: url('../../assets/fonts/Saira_Condensed/SairaCondensed-Bold.ttf') format('truetype');
+ }
+
+
+.title {
+  z-index: 1;
+}
+
+h1{
+  font-size: 8vh;
+  font-family: SairaCondensed;
+  color: #F1F2F4
+}
+
+h2{
+  font-size: 6vh;
+  font-family: SairaCondensed;
+  color: #1D1A20;
+}
+
+.title .p{
+  font-size: 4.5vh;
+  font-family: SairaCondensed-Bold;  
+  color:#1D1A20;
+}
+
+.title h2 {
+  cursor: pointer;
+  &:hover{
+    transform: scale(1.1);
+  }
+}
+
+.title a {
+  text-decoration: none;
+  color: #1D1A20;
+  &:hover{
+    color: #F1F2F4;
+    transform: scale(1.1);
+    transition: all 0.5s;
+  }
+}
+
+.dice-container {
+  flex: 1;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.dice {
+  width: 10vh; /* Set dice size to 10% of viewport height */
+  height: 10vh; /* Set dice size to 10% of viewport height */
+  position: absolute;
+  transform-style: preserve-3d;
+  transform-origin: center center;
+  transition: transform 1s;
+}
+
+.face {
+  position: absolute;
+  width: 10vh; /* Face size matches the dice size */
+  height: 10vh; /* Face size matches the dice size */
+  background: #fff;
+  border: 0.2vh solid #000; /* Adjust border size based on viewport height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3vh; /* Font size adjusts with viewport height */
+  font-weight: bold;
+}
+
+.front { transform: rotateY(0deg) translateZ(5vh); }
+.back { transform: rotateY(180deg) translateZ(5vh); }
+.right { transform: rotateY(90deg) translateZ(5vh); }
+.left { transform: rotateY(-90deg) translateZ(5vh); }
+.top { transform: rotateX(90deg) translateZ(5vh); }
+.bottom { transform: rotateX(-90deg) translateZ(5vh); }
+
+@keyframes moveAround1 {
+  0% { top: 25dvh; left: 50dvw; }
+  20% { top: 35dvh; left: 60dvw; }
+  40% { top: 45dvh; left: 55dvw; }
+  60% { top: 35dvh; left: 45dvw; }
+  80% { top: 25dvh; left: 50dvw; }
+  100% { top: 25dvh; left: 50dvw; }
+}
+
+@keyframes moveAround2 {
+  0% { top: 30dvh; left: 55dvw; }
+  20% { top: 40dvh; left: 65dvw; }
+  40% { top: 50dvh; left: 60dvw; }
+  60% { top: 40dvh; left: 50dvw; }
+  80% { top: 30dvh; left: 55dvw; }
+  100% { top: 30dvh; left: 55dvw; }
+}
+
+#dice1 {
+  animation: moveAround1 20s infinite cubic-bezier(0.42, 0, 0.58, 1);
+}
+
+#dice2 {
+  animation: moveAround2 25s infinite cubic-bezier(0.42, 0, 0.58, 1);
+}

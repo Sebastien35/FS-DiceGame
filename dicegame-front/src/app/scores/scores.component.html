@@ -1,0 +1,24 @@
+<div class="scores d-flex justify-content-center">
+    <h2>Filtrer par nombre de tours:</h2>
+    <div class="btn-group" role="group" aria-label="Basic example">
+        <button type="button" class="btn btn-secondary" (click)="getScores(6)">6</button>
+        <button type="button" class="btn btn-secondary" (click)="getScores(12)">12</button>
+        <button type="button" class="btn btn-secondary" (click)="getScores(18)">18</button>
+        <button type="button" class="btn btn-secondary" (click)="getScores(24)">24</button>
+    </div>
+</div>
+<div class="scores-table">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Player</th>
+                <th>Score</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let score of scores">
+                <td>{{ score.player }}</td>
+                <td>{{ score.score }}</td>
+            </tr>
+        </tbody>
+    </table>

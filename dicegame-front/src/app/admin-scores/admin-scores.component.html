@@ -1,0 +1,37 @@
+<nav class="navbar bg-light-subtle">
+    <a class="btn btn-primary nav-item" routerLink="/admin">Admin</a>
+    <a class="btn btn-primary nav-item" routerLink="scores">Scores</a>
+    <a class="btn btn-primary nav-item" routerLink="/admin/users" >Users</a>
+</nav>
+
+<div class="scoreTable">
+    <h2>Filtrer par nombre de tours:</h2>
+    <div class="btn-group" role="group" aria-label="Basic example">
+        
+        <button type="button" class="btn btn-secondary" (click)="getScores(6)">6</button>
+        <button type="button" class="btn btn-secondary" (click)="getScores(12)">12</button>
+        <button type="button" class="btn btn-secondary" (click)="getScores(18)">18</button>
+        <button type="button" class="btn btn-secondary" (click)="getScores(24)">24</button>
+    </div>
+</div>
+<div class="scores-table">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Player</th>
+                <th>Score</th>
+                <th class="text-center">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let score of scores">
+                
+                <td>{{ score.player }}</td>
+                <td>{{ score.score }}</td>
+                <td class="text-center">
+                    <button class="btn btn-danger" (click)="deleteScoreById(score.id)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
