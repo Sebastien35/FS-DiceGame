@@ -32,8 +32,8 @@ jobs:
           VPS_HOST: ${{ secrets.VPS_HOST }}
         run: |
           sshpass -p $VPS_PASSWORD ssh -o StrictHostKeyChecking=no $VPS_USER@$VPS_HOST "
-            ls -l &&
             cd $APP_PATH && 
+            ls -l &&
             docker-compose up -d
           "
 
