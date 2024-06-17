@@ -32,7 +32,7 @@ jobs:
           VPS_HOST: ${{ secrets.VPS_HOST }}
         run: |
           sshpass -p $VPS_PASSWORD ssh -o StrictHostKeyChecking=no $VPS_USER@$VPS_HOST "
-            cd $APP_PATH && 
+            cd htdocs/dice-game.online/ && 
             ls &&
             docker-compose up -d
           "
