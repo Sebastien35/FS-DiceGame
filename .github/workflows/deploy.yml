@@ -7,7 +7,7 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubtuntu-latest
+    runs-on: ubuntu-latest
     environment: vps
 
     steps:
