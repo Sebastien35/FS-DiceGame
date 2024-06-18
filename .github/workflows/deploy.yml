@@ -34,7 +34,8 @@ jobs:
           sshpass -p $VPS_PASSWORD ssh -o StrictHostKeyChecking=no $VPS_USER@$VPS_HOST "
             cd htdocs/dice-game.online/ && 
             ls &&
-            docker compose up -d
+            docker compose down -v 
+            docker compose up -d --build
           "
 
 
